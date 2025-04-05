@@ -4,15 +4,15 @@
 
 ## 멤버
 
-[🚀sanan](https://github.com/Ssuamje)
+[🚀 sanan](https://github.com/Ssuamje)
 
 [😺 sichoi](https://github.com/sichoi42) 
 
 [🚀 wchae](https://github.com/enaenen)
 
-[👽 mink97](https://github.com/mink97)
+[👽 mingkang](https://github.com/mink97)
 
-[🐼 junyoung2015](https://github.com/junyoung2015)
+[🐼 jusohn](https://github.com/junyoung2015)
 
 ## 규칙
 
