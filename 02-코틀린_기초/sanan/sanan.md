@@ -51,16 +51,6 @@
     }
     
     ```
-    <details>
-    - 해설
-        1. 해당 배열에는 `“Height everyone”`만 포함된다. when 절은 위에서부터 아래로, 분기 문에 해당하는 경우에 한해서 단 한 번 평가한다.(switch처럼 단순 fallThrough 하지 않는다) 만약 해당하는 케이스에 대해서 모두 반영하고 싶었다면 if 문을 두번 이용해서 사용해야 한다. 생각보다 when 절을 아무 생각없이 쓰다보면 이 사실을 망각할 수 있다. ~~(어떻게 알았냐고..?)~~
-        2. 타입 추론은 results에 대해 mutableList를 대입하려할 때에 발생한다. 리스트는 `MutableList<T>`, 즉 제네릭을 갖는 값이므로 컴파일타임에 정보를 파악해야한다. `mutableListOf<String>()`을 대입하는 것 말고 results 자체에 타입을 명시하고 `mutableListOf()`만 대입하는 것도 가능하다.
-            
-            ```kotlin
-            val results = mutableListOf<String>()
-            val resultsWithType: MutableList<String> = mutableListOf()
-            ```  
-    </details>
     
             
     
@@ -80,39 +70,4 @@
     
     val amIValue = throw IllegalArgumentException("No you're not")
     ```
-    <details>
-    - 해설
-        
-        `whyPrintingMe`는 `println()`이라는 함수의 결과 값을 가지게 되는데, 이는 java의 `void`와 동일하지만서도, `Unit`이라는 별도의 코틀린 타입으로 반환된다. 즉, `println()`이 실행되어 평가된 이후의 값은 `Unit`이므로, `whyPrintingMe`는 `Unit` 값을 가지게 된다.
-        
-        `ifYouLoveMe`는 컴파일 에러가 발생한다. if 문을 제어문이 아닌 평가식으로 사용하는 경우에는 else 가 반드시 필요하기 때문이다. (안 그러면 else일 때는 뭔 값인데? null도 아니야 뭣도 아니야 너가 안 써놨잖아.)
-        
-        `dontPlayMe`는 놀랍게도 할당 가능하다. 엥? 문자열 반환하는 `try-catch` 평가식 아님? 이라고 생각할 수 있으나, catch에서 반환 값이 적혀있지 않으므로 컴파일러는 해당 try-catch를 Unit으로 간주하게 된다(반환 값이 없는 단순 함수 호출식) + 만약 catch에 string을 적어준다면, `dontPlayMe`는 `String`으로 간주된다.
-        
-        ```kotlin
-        val dontPlayMe: Unit = try {
-            "I won't"
-            throw IllegalArgumentException("Sorry i will")
-        } catch (e: Exception) {
-            // do nothing
-        }
-          
-         val dontPlayMe: String = try {
-            "I won't"
-            throw IllegalArgumentException("Sorry i will")
-        } catch (e: Exception) {
-            "hehehe"
-        }
-        ```
-        
-        `amIValue`는 놀랍게도 컴파일 가능하고, 값이지만 값이 아니다. 이게 무슨 말일까?, 책에서 throw는 표현식(평가식)이라고 했다. 즉, 이후에 오는 exception의 경우 java의 Throwable을 조상으로 갖는 건 동일하지만, 코틀린 내부에서 평가할 때에는 `Nothing`이라는 타입으로 간주한다. 이는 typescript 진영의 `never`와 같은 녀석으로서, 컴파일 타임에 표현식으로 사용할 수 있음과 동시에 컴파일러에게 이 이후의 코드는 절대 실행되지 않는다는 보장과, 런타임에서는 반드시 값을 가질 수 없게 되는 것을 약속한다. 따라서, 다음과 같은 것을 통해 nullable한 값을 null-safe한 값으로 간주하게 할 수 있다.
-        
-        ```kotlin
-        val iAmNullString: String? = null
-        val mustBeStringOrThrow: String = iAmNullString ?: throw IllegalArgumentException("I am null")
-        println(mustBeStringOrThrow)
-        
-        // Exception in thread "main" java.lang.IllegalArgumentException: I am null
-        ```  
-    </details>
     
