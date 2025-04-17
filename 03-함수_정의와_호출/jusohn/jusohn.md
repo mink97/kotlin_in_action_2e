@@ -70,3 +70,9 @@ val map = mapOf(1 to "one", 7 to "seven", 53 to "fifty-three")
 # 내 생각
 
 - 복잡한데 되게 좋아 보인다 잘 쓰고싶다
+
+# 문제
+
+- `MutableList<Int>` 를 위한 확장함수 `swap` 을 작성하시오.
+  - `swap` 함수는 두 Integer 인덱스를 받아서 해당 인덱스의 원소 두개의 위치를 바꿉니다.
+- Integer 두 개 (밑과 지수) 를 받아 거듭제곱을 하는 중위 함수 `powerOf` 를 작성하고, 중위 함수로 호출하시오.
