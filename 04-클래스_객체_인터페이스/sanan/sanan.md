@@ -205,7 +205,7 @@
     위 단계를 State를 sealed interface를 이용해서 구현해보자.
     
 
-[1번 답]()
+[1번 답](https://github.com/RabbitHoleStudy/kotlin_in_action_2e/blob/main/04-%ED%81%B4%EB%9E%98%EC%8A%A4_%EA%B0%9D%EC%B2%B4_%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/sanan/q1_answer.md)
 
 1. 계산기를 구현해보자. 요구사항은 다음과 같다.
     - 계산기는 `data class` 다.
@@ -214,8 +214,8 @@
     - `thread-safe` 해야 한다.
     - 최대한 간단하게 구현한다 - edge case는 고려하지 않는다
 
-[2번 답]()
+[2번 답](https://github.com/RabbitHoleStudy/kotlin_in_action_2e/blob/main/04-%ED%81%B4%EB%9E%98%EC%8A%A4_%EA%B0%9D%EC%B2%B4_%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/sanan/q1_answer2.md)
 
 1. 위 계산기에서 쓰였던 amount를 항상 양수임을 보장하는 value class로 재구성해보자.
 
-[3번 답]()
+[3번 답](https://github.com/RabbitHoleStudy/kotlin_in_action_2e/blob/main/04-%ED%81%B4%EB%9E%98%EC%8A%A4_%EA%B0%9D%EC%B2%B4_%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/sanan/q1_answer3.md)
