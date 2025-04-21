@@ -205,7 +205,7 @@
     위 단계를 State를 sealed interface를 이용해서 구현해보자.
     
 
-[1번 답](https://www.notion.so/1-1dcca1d1826c8079a60af9f53d83b9b6?pvs=21)
+[1번 답]()
 
 1. 계산기를 구현해보자. 요구사항은 다음과 같다.
     - 계산기는 `data class` 다.
@@ -214,8 +214,8 @@
     - `thread-safe` 해야 한다.
     - 최대한 간단하게 구현한다 - edge case는 고려하지 않는다
 
-[2번 답](https://www.notion.so/2-1dcca1d1826c80fdbf4bf68d5835892a?pvs=21)
+[2번 답]()
 
 1. 위 계산기에서 쓰였던 amount를 항상 양수임을 보장하는 value class로 재구성해보자.
 
-[3번 답](https://www.notion.so/3-1dcca1d1826c800299b7cd3081e8b8ff?pvs=21)
+[3번 답]()
