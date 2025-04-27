@@ -218,7 +218,16 @@ fun main() {
   }
   ```
 
-- 답
-  run 이 "람다식" 또는 "실행 가능한 코드 블록"을 기대하기 때문.
-  1. `{ salute() }` 처럼 실행 가능한 코드 블록으로 만들기
-  2. `fun salute() = { println("Salute!") }` 처럼 함수 참조를 람다로 바꾸기
+## 문제 2
+
+- 아래 코드를 보고, makeRunningAverage 를 구현하세요.
+
+  ```kotlin
+  fun main() {
+    val avg = makeRunningAverage()
+
+    println(avg(10.0))   // 10.0   (첫 번째 값)
+    println(avg(20.0))   // 15.0   ((10 + 20) / 2)
+    println(avg(0.0))    // 10.0   ((10 + 20 + 0) / 3)
+  }
+  ```
