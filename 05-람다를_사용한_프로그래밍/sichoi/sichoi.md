@@ -1005,20 +1005,28 @@ fun main() {
 
 ```kotlin
 fun main() {
-    val printMessage = { message: String -> println(message) }
-    with("Hello") {
-        printMessage(it)
-    }
+    val printMessage = { message: String -> println("Message: $message") }
+
+    val result = listOf(1, 2, 3)
+        .map { it * 2 }
+        .with("Hello") {
+            printMessage(this)
+        }
+        .filter { it > 2 }
+
+    println(result)
 }
 ```
 
 **선택지**
 
-A) 컴파일 에러 발생
+A) "Message: Hello" 출력 후, [2, 4, 6] 출력
 
-B) "Hello" 출력
+B) "Message: Hello" 출력 후, [4, 6] 출력
 
-C) 아무것도 출력되지 않는다
+C) 컴파일 에러
+
+D) 런타임 에러 발생
 
 
 ### ❓ 퀴즈 2
