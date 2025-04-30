@@ -250,3 +250,48 @@ fun main() {
   }
   ```
   - any를 find로 바꾸면 원하는 디렉터리를 찾을 수도 있음.
+
+## 중요한 것 같은 부분
+- 함수형 API, 위에서 설명한 여러 함수들 숙지
+- 람다 내에서 중복 계산으로 불필요한 계산 늘릴 수 있으니 조심
+- 시퀀스 지연연산
+
+## 문제
+1. 다음 코드를 최적화하시오.
+```kotlin
+data class Student(val name: String, val grade: Int)
+
+fun topStudentsNames(students: List<Student>): List<String> {
+    return students.filter { it.grade == students.maxByOrNull { s -> s.grade }?.grade }
+                   .map { it.name }
+}
+```
+
+2. 시퀀스 사용하는 코드로 변경해보기
+```kotlin
+data class Article(val title: String, val content: String)
+
+fun getKeywordTitles(articles: List<Article>, keyword: String): List<String> {
+    return articles.map { it.title }
+                   .filter { it.contains(keyword) }
+}
+```
+
+## 답
+1.
+```kotlin
+  fun topStudentsNames(students: List<Student>): List<String> {
+  val maxGrade = students.maxByOrNull { it.grade }?.grade
+  return students.filter { it.grade == maxGrade }
+                 .map { it.name }
+  }
+```
+2.
+```kotlin
+  fun getKeywordTitles(articles: List<Article>, keyword: String): List<String> {
+    return articles.asSequence()
+                   .filter { it.title.contains(keyword) }
+                   .map { it.title }
+                   .toList()
+  }
+```
