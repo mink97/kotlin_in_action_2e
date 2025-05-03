@@ -281,7 +281,7 @@ fun getlheBestPersonlnTheworld(): Person? = null
   - `let`을 내포시켜 처리하면 코드가 복잡해져서 알아보기 어려워짐
   - 그런 경우 일반적인 `if`를 사용해 모든 값을 한꺼번에 검사하는 펀이 나음
 
-![image.png](attachment:7dff2329-6aa7-4d5d-b94a-590ca50fb7f2:image.png)
+![image_00.png](image_00.png)
 
 ## 직접 초기화하지 않는 `null` 이 아닌 타입: 지연 초기화 프로퍼티
 
@@ -312,6 +312,8 @@ class Mylest {
   @Test fun testAction() {
     assertEquals("Action Done!", myService.performAction())
     // null 검사를 수행하지 않고 프로퍼티를 사용함
+
+  }
 }
 ```
 
@@ -405,7 +407,7 @@ fun main() {
 
 ## 널 가능성과 자바
 
-![image.png](attachment:77630056-5131-416b-9c40-e204c51fda73:image.png)
+![image_04.png](image_04.png)
 
 ### 플랫폼 타입
 
