@@ -203,20 +203,22 @@ fun squareNotNull(input: Array<Int?>): List<Int> {
 ### A2.
 1) IntArray는 정수형 원시타입으로 저장, Array<Int>는 래핑하여 객체타입으로 저장. IntArray가 성능상 유리 / Array<Int>는 숫자 특화 함수 사용x(sum(), average(), maxOrNull()등의 함수를 직접 사용 불가)
 <br/><br/>
-3)
+2)
 ```kotlin
 fun evensToIntArray(vararg numbers: Int) =
     numbers.filter { it % 2 == 0 }
         .toIntArray()
 ```
 <br/><br/>
-3)
+
+3) 
 ```kotlin
 fun oddsToArray(vararg numbers: Int) =
     numbers.filter { it % 2 != 0 }
         .toTypedArray()
 ```
 <br/><br/>
+
 4) 스프레드 연산자(*) 사용하면 됩니다!
 
 
