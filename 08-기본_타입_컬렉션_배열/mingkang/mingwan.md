@@ -170,12 +170,54 @@ x in list // false(다른 타입끼리 비교)
 - 코틀린 Array는 제네릭클래스처럼 보이지만 자바 배열로 컴파일
 - 원시 타입의 배열은 IntArray 등의 특별한 클래스로 표현
 
+### Q1. nullable Int 배열을 받아서 null이 아닌 값들만 제곱하여 List<Int>로 반환하는 함수를 작성하시오
+```kotlin
+fun squareNotNull(input: Array<Int?>): List<Int> {
+
+}
+```
+
+### Q2.
+1) IntArray와 Array<Int>의 차이를 설명하시오. <br/><br/>
+2) 정수를 vararg로 받아 짝수만 모아 IntArray로 반환하는 함수 작성하세요
+   ```kotlin
+   fun evensToIntArray(vararg numbers: Int): IntArray
+   ```
+   <br/><br/>
+3) 정수를 vararg로 받아 짝수만 모아 Array<Int>로 반환하는 함수 작성하세요
+   ```kotlin
+   fun oddsToArray(vararg numbers: Int): Array<Int>
+   ```
+   <br/><br/>
+4) IntArray 변수가 있을 때 vararg로 함수에 넘기려면 어떻게 해야하나요?<br/><br/>
 
 
-
-
-
-
+### A1.
+```kotlin
+fun squareNotNull(input: Array<Int?>): List<Int> {
+    input.filterNotNull()
+         .map { it * it }
+}
+```
+<br/><br/>
+### A2.
+1) IntArray는 정수형 원시타입으로 저장, Array<Int>는 래핑하여 객체타입으로 저장. IntArray가 성능상 유리 / Array<Int>는 숫자 특화 함수 사용x(sum(), average(), maxOrNull()등의 함수를 직접 사용 불가)
+<br/><br/>
+3)
+```kotlin
+fun evensToIntArray(vararg numbers: Int) =
+    numbers.filter { it % 2 == 0 }
+        .toIntArray()
+```
+<br/><br/>
+3)
+```kotlin
+fun oddsToArray(vararg numbers: Int) =
+    numbers.filter { it % 2 != 0 }
+        .toTypedArray()
+```
+<br/><br/>
+4) 스프레드 연산자(*) 사용하면 됩니다!
 
 
 
